@@ -31,5 +31,15 @@ namespace RestaurantStudio
             // Update LastUpdated anytime we remove a menuItem
             this.LastUpdated = DateTime.Now;
         }
+
+        public override string ToString()
+        {
+            string menuString = String.Format("Last Update ({0}):{1}", this.LastUpdated, Environment.NewLine);
+            foreach (var menuItem in this.MenuItems)
+            {
+                menuString = menuString + menuItem.ToString() + Environment.NewLine;
+            }
+            return menuString;
+        }
     }
 }
